@@ -10,7 +10,7 @@ services:
     labels:
       - "traefik.enable=${TRAEFIK_ENABLE:-false}"
       - "traefik.http.routers.whoami.entrypoints=web,websecure"
-      - "traefik.http.routers.whoami.rule=Host(`${TRAEFIK_HOST:-example}.dezem.io`) && Path(`/whoami`)"
+      - "traefik.http.routers.whoami.rule=Host(`${TRAEFIK_HOST:-example}.dezem.io`) && Path(`/whoami2`)"
 networks:
   proxy-traefik:
     external: true
