@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  whoami:
+    image: "traefik/whoami:latest"
+    container_name: "whoami"
+    restart: always
+    networks:
+      - proxy-traefik
+    labels:
+      - "traefik.enable=${TRAEFIK_ENABLE:-false}"
+      - "traefik.http.routers.whoami.entrypoints=web,websecure"
+      - "traefik.http.routers.whoami.rule=Host(`${TRAEFIK_HOST:-example}.dezem.io`) && Path(`/whoami`)"
+networks:
+  proxy-traefik:
+    external: true
